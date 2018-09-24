@@ -358,6 +358,7 @@ void change_drops(int x1, int y1, int x2, int y2) {
 int drop_t=255;//ドロップの透明度
 void display() {
   noStroke();
+  tint(255, 255);
   for (i = 0; i < 6; i++) {
     for (j = 0; j < 7; j++) {
       if (board[j][i] != 6) {
@@ -366,8 +367,6 @@ void display() {
             if (drop_t>128)
               drop_t--;
             tint(255, drop_t);
-          } else {
-            tint(255, 255);
           }
           image(drop_pic[board[j][i]], j*drop_dia + drop_dia/2, i*drop_dia + drop_dia/2, drop_dia, drop_dia);
         } else if (mass[j][i]) {

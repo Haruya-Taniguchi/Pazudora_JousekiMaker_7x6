@@ -316,12 +316,14 @@ void mousePressed() {
 }
 
 void mouseReleased() {
-  if (ui_space>mouseY)
+  if (ui_space>mouseY&&!fin)
   {
     moved = true;
     i = 0;
     j = -1;
   }
+  if (fin) 
+    ini();
 }
 
 //mass_t[][]がtrueだがmass[][]がtrueの場合falseを代入して消し、その周囲にもそのようなドロップがあったら同じ処理をする。

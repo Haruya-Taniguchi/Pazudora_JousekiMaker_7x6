@@ -14,6 +14,7 @@ boolean not_erase = true;//ドロップを消す処理をしている間false
 boolean not_down = true;
 boolean fin=false;
 int i, j, k;
+float dx, dy;
 boolean judge = true;
 int[] ex_val = new int[7];//消えているドロップの数
 boolean[][] mass = new boolean[7][6];//消えているか否かを判定
@@ -254,12 +255,17 @@ loop: //消し終わったか否かを判定
         }
       }
     }
-
-    if (not_erase && mousePressed && mouseX >= 0 && mouseX < width && mouseY >= 0 && mouseY < ui_space&&!fin) {
-      //ドロップをドラッグする処理
-      co[0] = int(mouseX / drop_dia);
-      co[1] = int(mouseY / drop_dia);
-      if (dist(mouseX, mouseY, co[0]*drop_dia + drop_dia/2, co[1]*drop_dia + drop_dia/2) < drop_dia/2) {
+    //ドラッグ時のドロップの座標を代入
+    if (mouseX > 0 && mouseX <= width) {
+      dx=mouseX;
+    }
+    if (mouseY > 0 && mouseY <= ui_space) {
+      dy=mouseY;
+    }
+    if (not_erase && mousePressed&&!fin) {
+      co[0] = int(dx / drop_dia);
+      co[1] = int(dy / drop_dia);
+      if (dist(dx, dy, co[0]*drop_dia + drop_dia/2, co[1]*drop_dia + drop_dia/2) < drop_dia/2) {
         change_drops(co[0], co[1], move_drop[0], move_drop[1]);
         for (i = 0; i < 2; i++) {
           move_drop[i] = co[i];
@@ -370,9 +376,9 @@ void display() {
           }
           image(drop_pic[board[j][i]], j*drop_dia + drop_dia/2, i*drop_dia + drop_dia/2, drop_dia, drop_dia);
         } else if (mass[j][i]) {
-          if (not_erase&&mouseY<ui_space&&button[2]&&!fin) {//ドラッグされているドロップの表示
+          if (not_erase&&button[2]&&!fin) {//ドラッグされているドロップの表示
             tint(255, 255);
-            image(drop_pic[board[j][i]], mouseX, mouseY-drop_dia/4, drop_dia*1.3, drop_dia*1.3);
+            image(drop_pic[board[j][i]], dx, dy-drop_dia/4, drop_dia*1.3, drop_dia*1.3);
           } else {
             image(drop_pic[board[j][i]], j*drop_dia + drop_dia/2, i*drop_dia + drop_dia/2, drop_dia, drop_dia);
           }

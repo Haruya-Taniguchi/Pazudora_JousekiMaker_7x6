@@ -29,15 +29,15 @@ void setup() {
   drop_pic[3] = loadImage("block_dark.png");
   drop_pic[4] = loadImage("block_blue.png");
   drop_pic[5] = loadImage("block_life.png");
-  font=loadFont("ProcessingSansPro-Regular-48.vlw");
+  //font=loadFont("ProcessingSansPro-Regular-48.vlw");
   size(525, 600, P2D);
-  textFont(font);
+  //textFont(font);
   drop_dia=width/7;
   h=width/7;
   w=width/3;
   ui_space=height-drop_dia-h;
   pd_space=ui_space+drop_dia;
-  frameRate(60);
+  frameRate(60);//?
   for (i = 0; i < 6; i++)//最初のドロップの配置 
   {
     for (j = 0; j < 7; j++) 
@@ -55,7 +55,7 @@ void setup() {
 }
 
 void draw() {
-loop: //消し終わったか否かを判定
+//消し終わったか否かを判定
   for (int j=0; j<7; j++) 
   {
     for (int i=0; i<6; i++) 

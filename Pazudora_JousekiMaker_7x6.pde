@@ -56,6 +56,7 @@ void setup() {
 
 void draw() {
 //消し終わったか否かを判定
+loop:
   for (int j=0; j<7; j++) 
   {
     for (int i=0; i<6; i++) 

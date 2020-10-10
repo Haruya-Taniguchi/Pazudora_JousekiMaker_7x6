@@ -23,6 +23,9 @@
 <div align="center">
 <img src="gif/random.gif" width=480px>
 </div>
+## 派生作品
+後輩がp5.jsに移植してくれました．こっちの方がコードが綺麗でいいかんじ
+https://github.com/HitsujiRere/Pazudora_JousekiMaker_7x6_js
 
 ## Licence
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
